@@ -79,12 +79,14 @@ header {
     right: 10px;
     top: 10px;
     z-index: 2;
+    cursor: pointer;
   }
   .back-img {
     position: absolute;
     left: 20px;
     top: 20px;
     z-index: 2;
+    cursor: pointer;
   }
   .header {
     padding: 40px 0;
@@ -178,6 +180,7 @@ header {
   }
 }
 .card-weather {
+  cursor: pointer;
   .clouds-background {
     position: absolute;
     width: 100%;
@@ -205,4 +208,11 @@ hr.divider {
   border: none;
   border-left: solid 1px #98999c;
   margin: 20px 0;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }

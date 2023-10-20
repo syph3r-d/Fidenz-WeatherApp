@@ -3,6 +3,7 @@ import { images } from "../../utils/images";
 import CardFooter from "./CardFooter";
 import { getWeather } from "../../../APIs/weatherAPI";
 import { useNavigate } from "react-router";
+import MoonLoader from "react-spinners/MoonLoader";
 
 const CityCard = ({ color, city }) => {
   const navigate = useNavigate();
@@ -26,7 +27,8 @@ const CityCard = ({ color, city }) => {
       onClick={() => handleClick(cityWeather.id)}
     >
       <img className="close-img" src={images.close} alt="" />
-      {!isLoading && (
+
+      {!isLoading ? (
         <>
           <div className="header" style={{ background: color }}>
             <img className="clouds-background" src={images.cloud_bg} alt="" />
@@ -51,6 +53,10 @@ const CityCard = ({ color, city }) => {
           </div>
           <CardFooter data={cityWeather} />
         </>
+      ) : (
+        <div className="loading-container">
+          <MoonLoader color={color} size={50} />
+        </div>
       )}
     </div>
   );

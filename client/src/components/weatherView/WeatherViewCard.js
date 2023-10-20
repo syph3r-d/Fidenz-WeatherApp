@@ -4,6 +4,7 @@ import { images } from "../utils/images";
 import { useParams } from "react-router";
 import { getWeather } from "../../APIs/weatherAPI";
 import { useNavigate } from "react-router";
+import MoonLoader from "react-spinners/MoonLoader";
 
 const WeatherViewCard = () => {
   const navigate = useNavigate();
@@ -36,7 +37,7 @@ const WeatherViewCard = () => {
         alt=""
         onClick={() => navigate("/")}
       />
-      {!isLoading && !isError ? (
+      {!isLoading ? (
         <>
           <div
             className="header"
@@ -69,7 +70,9 @@ const WeatherViewCard = () => {
           <CardFooter data={cityWeather} />
         </>
       ) : (
-        <h1>Loading...</h1>
+        <div className="loading-container">
+            <MoonLoader color={"#388ee7"} size={50} />
+        </div>
       )}
     </div>
   );
