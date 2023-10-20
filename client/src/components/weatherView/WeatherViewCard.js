@@ -11,7 +11,7 @@ const WeatherViewCard = () => {
   const { city } = useParams();
   const [cityWeather, setCityWeather] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
+  const [isError, setIsError] = useState({ error: false, message: "" });
 
   useEffect(() => {
     const loadWeather = async () => {
@@ -21,7 +21,7 @@ const WeatherViewCard = () => {
         setCityWeather(res);
         setIsLoading(false);
       } catch (error) {
-        setIsError(true);
+        setIsError({ error: true, message: error.message });
         console.log(error);
       }
     };
@@ -37,7 +37,7 @@ const WeatherViewCard = () => {
         alt=""
         onClick={() => navigate("/")}
       />
-      {!isLoading ? (
+      {!isLoading && !isError.error ? (
         <>
           <div
             className="header"
@@ -69,6 +69,10 @@ const WeatherViewCard = () => {
           </div>
           <CardFooter data={cityWeather} />
         </>
+      ) : isError.error ? (
+        <div className="header" style={{textAlign:"center"}}>
+          <h1>{isError.message}</h1>
+        </div>
       ) : (
         <div className="loading-container">
           <MoonLoader color={"#388ee7"} size={50} />

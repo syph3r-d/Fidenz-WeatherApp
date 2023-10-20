@@ -180,8 +180,14 @@ header {
   }
 }
 .card-weather {
+  &:hover {
+    .clouds-background {
+      transform: translateY(-10px);
+    }
+  }
   cursor: pointer;
   .clouds-background {
+    transition: all 0.3s ease-in-out;
     position: absolute;
     width: 100%;
     bottom: 0;

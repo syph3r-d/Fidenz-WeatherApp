@@ -3,8 +3,6 @@ import { images } from "../../../utils/images";
 import moment from "moment";
 
 const CardFooter = ({ data }) => {
-  const timezone = new Date().getTimezoneOffset();
-  console.log(timezone);
   return (
     <div className="footer">
       <div className="pressure">
@@ -33,12 +31,15 @@ const CardFooter = ({ data }) => {
           <b>Sunrise: </b>
           {moment
             .utc(data.sys.sunrise, "X")
-            .add(timezone, "seconds")
+            .add(data.timezone, "seconds")
             .format("h:mm a")}
         </p>
         <p>
           <b>Sunset: </b>
-          {moment.utc(data.sys.sunset, "X").format("h:mm a")}
+          {moment
+            .utc(data.sys.sunset, "X")
+            .add(data.timezone, "seconds")
+            .format("h:mm a")}
         </p>
       </div>
     </div>

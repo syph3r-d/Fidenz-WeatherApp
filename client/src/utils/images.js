@@ -9,4 +9,5 @@ export const images = {
   close,
   logo,
   cloud_bg,
+  wind,
 };

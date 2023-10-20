@@ -11,9 +11,13 @@ export const getWeather = async (citycode) => {
       `https://api.openweathermap.org/data/2.5/weather?id=${citycode}&appid=${API_KEY}&units=metric`
     );
     const data = await res.json();
+    if(data.cod !== 200){
+      throw new Error(data.message);
+    }
     cacheData(citycode,data);
     return data;
   } catch (error) {
+    console.log(error);
     throw error;
   }
 };
