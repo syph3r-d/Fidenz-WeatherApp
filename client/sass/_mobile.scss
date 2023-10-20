@@ -1,0 +1,24 @@
+@media (max-width: 768px) {
+  body {
+    font-size: 0.6rem;
+  }
+  .search {
+    input[type="text"] {
+      width: 50%;
+    }
+  }
+  .card {
+    .header {
+      flex-direction: column;
+    }
+  }
+  .card-grid {
+    grid-template-columns: 1fr
+  }
+  .show-sm{
+    display: block;
+  }
+  .card-container{
+    width: 80%;
+  }
+}

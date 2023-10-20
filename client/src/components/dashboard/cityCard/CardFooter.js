@@ -7,13 +7,13 @@ const CardFooter = ({ data }) => {
     <div className="footer">
       <div className="pressure">
         <p>
-          <b>Pressure:</b> {data.main.pressure} hPa
+          <b>Pressure:</b> <br className="show-sm" /> {data.main.pressure} hPa
         </p>
         <p>
-          <b>Humidity:</b> {data.main.humidity}%
+          <b>Humidity:</b><br className="show-sm" /> {data.main.humidity}%
         </p>
         <p>
-          <b>Visibility:</b> {data.visibility / 1000} km
+          <b>Visibility:</b><br className="show-sm" /> {data.visibility / 1000} km
         </p>
       </div>
       <hr className="divider" />
@@ -28,14 +28,14 @@ const CardFooter = ({ data }) => {
       <hr className="divider" />
       <div className="sunrise">
         <p>
-          <b>Sunrise: </b>
+          <b>Sunrise: </b><br className="show-sm" />
           {moment
             .utc(data.sys.sunrise, "X")
             .add(data.timezone, "seconds")
             .format("h:mm a")}
         </p>
         <p>
-          <b>Sunset: </b>
+          <b>Sunset: </b><br className="show-sm" />
           {moment
             .utc(data.sys.sunset, "X")
             .add(data.timezone, "seconds")

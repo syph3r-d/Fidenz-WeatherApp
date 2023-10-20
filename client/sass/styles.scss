@@ -194,6 +194,10 @@ header {
   }
 }
 
+.show-sm{
+    display: none;
+}
+
 footer {
   background-color: #30333d;
   text-align: center;
@@ -222,3 +226,5 @@ hr.divider {
   align-items: center;
   height: 100%;
 }
+
+@import "mobile";
