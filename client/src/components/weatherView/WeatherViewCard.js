@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CardFooter from "../dashboard/cityCard/CardFooter";
-import { images } from "../utils/images";
+import { images } from "../../utils/images";
 import { useParams } from "react-router";
 import { getWeather } from "../../APIs/weatherAPI";
 import { useNavigate } from "react-router";
@@ -71,7 +71,7 @@ const WeatherViewCard = () => {
         </>
       ) : (
         <div className="loading-container">
-            <MoonLoader color={"#388ee7"} size={50} />
+          <MoonLoader color={"#388ee7"} size={50} />
         </div>
       )}
     </div>

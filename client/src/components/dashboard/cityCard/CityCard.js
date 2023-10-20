@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { images } from "../../utils/images";
+import { images } from "../../../utils/images";
 import CardFooter from "./CardFooter";
 import { getWeather } from "../../../APIs/weatherAPI";
 import { useNavigate } from "react-router";
