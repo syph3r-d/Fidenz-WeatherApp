@@ -22,7 +22,7 @@ const CardFooter = ({ data }) => {
           <img src={images.wind} alt="" />
         </div>
         <p>
-          <b>{`${data.wind.speed}m/s 120 Degree`}</b>
+          <b>{`${data.wind.speed}m/s ${data.wind.deg} Degree`}</b>
         </p>
       </div>
       <hr className="divider" />
