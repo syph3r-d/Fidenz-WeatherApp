@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { images } from "../../../utils/images";
 import CardFooter from "./CardFooter";
 import { getWeather } from "../../../APIs/weatherAPI";
@@ -9,25 +9,8 @@ import { useQuery } from "react-query";
 
 const CityCard = ({ color, city }) => {
   const navigate = useNavigate();
-  // const [data, setdata] = useState();
-  // const [isLoading, setIsLoading] = useState(true);
-  // const [isError, setIsError] = useState({ error: false, message: "" });
   const {data,isLoading,isError,error} = useQuery(city.CityCode,()=>getWeather(city.CityCode));
 
-  useEffect(() => {
-    // const loadWeather = async () => {
-    //   try {
-    //     setIsLoading(true);
-    //     const res = await getWeather(city.CityCode);
-    //     setdata(res);
-    //     setIsLoading(false);
-    //   } catch (error) {
-    //     setIsError({ error: true, message: error.message });
-    //     console.log(error);
-    //   }
-    // };
-    // loadWeather();
-  }, []);
 
   const handleClick = (cityCode) => {
     navigate(`/weather/${cityCode}`);

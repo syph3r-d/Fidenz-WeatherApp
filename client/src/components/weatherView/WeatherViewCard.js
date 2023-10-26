@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import CardFooter from "../dashboard/cityCard/CardFooter";
 import { images } from "../../utils/images";
 import { useParams } from "react-router";
@@ -11,26 +11,7 @@ import { useQuery } from "react-query";
 const WeatherViewCard = () => {
   const navigate = useNavigate();
   const { city } = useParams();
-  // const [data, setdata] = useState();
-  // const [isLoading, setIsLoading] = useState(true);
-  // const [isError, setIsError] = useState({ error: false, message: "" });
   const {data,isLoading,isError,error} = useQuery(city,()=>getWeather(city));
-
-  useEffect(() => {
-    // const loadWeather = async () => {
-    //   try {
-    //     setIsLoading(true);
-    //     const res = await getWeather(city);
-    //     setdata(res);
-    //     setIsLoading(false);
-    //   } catch (error) {
-    //     setIsError({ error: true, message: error.message });
-    //     console.log(error);
-    //   }
-    // };
-    // loadWeather();
-  }, []);
-  const colors = ["#388ee7", "#6249cc", "#40b681", "#de944e", "#9c3a3a"];
 
   return (
     <div className="card card-weather-view">
