@@ -5,27 +5,30 @@ import { useParams } from "react-router";
 import { getWeather } from "../../APIs/weatherAPI";
 import { useNavigate } from "react-router";
 import MoonLoader from "react-spinners/MoonLoader";
+import { OPEN_WEATHER_ICONS } from "../../APIs/config/urls";
+import { useQuery } from "react-query";
 
 const WeatherViewCard = () => {
   const navigate = useNavigate();
   const { city } = useParams();
-  const [cityWeather, setCityWeather] = useState();
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState({ error: false, message: "" });
+  // const [data, setdata] = useState();
+  // const [isLoading, setIsLoading] = useState(true);
+  // const [isError, setIsError] = useState({ error: false, message: "" });
+  const {data,isLoading,isError,error} = useQuery(city,()=>getWeather(city));
 
   useEffect(() => {
-    const loadWeather = async () => {
-      try {
-        setIsLoading(true);
-        const res = await getWeather(city);
-        setCityWeather(res);
-        setIsLoading(false);
-      } catch (error) {
-        setIsError({ error: true, message: error.message });
-        console.log(error);
-      }
-    };
-    loadWeather();
+    // const loadWeather = async () => {
+    //   try {
+    //     setIsLoading(true);
+    //     const res = await getWeather(city);
+    //     setdata(res);
+    //     setIsLoading(false);
+    //   } catch (error) {
+    //     setIsError({ error: true, message: error.message });
+    //     console.log(error);
+    //   }
+    // };
+    // loadWeather();
   }, []);
   const colors = ["#388ee7", "#6249cc", "#40b681", "#de944e", "#9c3a3a"];
 
@@ -37,7 +40,7 @@ const WeatherViewCard = () => {
         alt=""
         onClick={() => navigate("/")}
       />
-      {!isLoading && !isError.error ? (
+      {!isLoading && !isError ? (
         <>
           <div
             className="header"
@@ -46,32 +49,32 @@ const WeatherViewCard = () => {
             }}
           >
             <div className="location">
-              <h2>{`${cityWeather.name}, ${cityWeather.sys.country}`}</h2>
+              <h2>{`${data.name}, ${data.sys.country}`}</h2>
               <p>9.19am, Feb 8</p>
             </div>
             <div className="weather-details">
               <div className="weather-stat">
                 <img
-                  src={`https://openweathermap.org/img/wn/${cityWeather.weather[0].icon}@2x.png`}
+                  src={`${OPEN_WEATHER_ICONS}${data.weather[0].icon}@2x.png`}
                   alt=""
                 />
-                <h4>{cityWeather.weather[0].description}</h4>
+                <h4>{data.weather[0].description}</h4>
               </div>
               <hr className="divider" />
               <div className="temperature">
-                <h1>{cityWeather.main.temp}°c</h1>
+                <h1>{data.main.temp}°c</h1>
                 <div className="temperature-minmax">
-                  <h5>Temp Min: {cityWeather.main.temp_min}°c</h5>
-                  <h5>Temp Max: {cityWeather.main.temp_max}°c</h5>
+                  <h5>Temp Min: {data.main.temp_min}°c</h5>
+                  <h5>Temp Max: {data.main.temp_max}°c</h5>
                 </div>
               </div>
             </div>
           </div>
-          <CardFooter data={cityWeather} />
+          <CardFooter data={data} />
         </>
-      ) : isError.error ? (
+      ) : isError ? (
         <div className="header" style={{textAlign:"center"}}>
-          <h1>{isError.message}</h1>
+          <h1>{error}</h1>
         </div>
       ) : (
         <div className="loading-container">

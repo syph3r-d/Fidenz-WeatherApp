@@ -1,5 +1,3 @@
-export const API_KEY = "77e79eb2b9fbfc716a794b4c2018d502";
-
 export const Cities = {
   List: [
     {

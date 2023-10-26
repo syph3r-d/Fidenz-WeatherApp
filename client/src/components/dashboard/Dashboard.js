@@ -1,11 +1,10 @@
 import React from "react";
 import CityCard from "./cityCard/CityCard";
-import { Cities } from "../../APIs/config/openWeatherConfig";
+import { Cities } from "../../utils/cities";
 import { useNavigate } from "react-router";
 
 const Dashboard = () => {
   const colors = ["#388ee7", "#6249cc", "#40b681", "#de944e", "#9c3a3a"];
-  const navigate = useNavigate();
   return (
     <div className="dashboard">
       <div className="search">
