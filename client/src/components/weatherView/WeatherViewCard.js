@@ -74,7 +74,7 @@ const WeatherViewCard = () => {
         </>
       ) : isError ? (
         <div className="header" style={{textAlign:"center"}}>
-          <h1>{error}</h1>
+          <h1>{error.message}</h1>
         </div>
       ) : (
         <div className="loading-container">

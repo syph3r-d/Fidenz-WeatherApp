@@ -32,7 +32,6 @@ const CityCard = ({ color, city }) => {
   const handleClick = (cityCode) => {
     navigate(`/weather/${cityCode}`);
   };
-  console.log(data,isLoading,error);
   return (
     <div
       className="card card-weather"
@@ -40,7 +39,7 @@ const CityCard = ({ color, city }) => {
     >
       <img className="close-img" src={images.close} alt="" />
 
-      {!isLoading && !isError.error ? (
+      {!isLoading && !isError ? (
         <>
           <div className="header" style={{ background: color }}>
             <img className="clouds-background" src={images.cloud_bg} alt="" />
@@ -70,9 +69,9 @@ const CityCard = ({ color, city }) => {
           </div>
           <CardFooter data={data} />
         </>
-      ) : isError.error ? (
+      ) : isError ? (
         <div className="header">
-          <h2>{isError.message}</h2>
+          <h2>{error.message}</h2>
         </div>
       ) : (
         <div className="loading-container">

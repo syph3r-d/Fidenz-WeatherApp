@@ -18,6 +18,6 @@ export const getWeather = async (citycode) => {
     return data;
   } catch (error) {
     console.log(error);
-    throw error;
+    throw new Error(error.message);
   }
 };
