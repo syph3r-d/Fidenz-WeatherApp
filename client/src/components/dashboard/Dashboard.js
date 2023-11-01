@@ -1,9 +1,8 @@
 import React from "react";
 import CityCard from "./cityCard/CityCard";
-import { Cities } from "../../utils/cities";
-import { useNavigate } from "react-router";
 
 const Dashboard = () => {
+  let cities = require("../../APIs/config/cities.json");
   const colors = ["#388ee7", "#6249cc", "#40b681", "#de944e", "#9c3a3a"];
   return (
     <div className="dashboard">
@@ -14,7 +13,7 @@ const Dashboard = () => {
         </button>
       </div>
       <div className="card-grid">
-        {Cities.List.map((city) => {
+        {cities.List.map((city) => {
           return (
             <CityCard
               color={colors[Math.floor(Math.random() * colors.length)]}

@@ -63,7 +63,7 @@ header {
   margin: 30px auto;
   gap: 40px;
   width: 70%;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
 }
 .card {
   border-radius: 10px;
@@ -157,6 +157,7 @@ header {
   .header {
     flex-direction: column;
     justify-content: space-evenly;
+    background: rgb(56, 142, 231);
   }
   .weather-details {
     display: flex;

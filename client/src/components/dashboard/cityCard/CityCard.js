@@ -9,17 +9,15 @@ import { useQuery } from "react-query";
 
 const CityCard = ({ color, city }) => {
   const navigate = useNavigate();
-  const {data,isLoading,isError,error} = useQuery(city.CityCode,()=>getWeather(city.CityCode));
-
+  const { data, isLoading, isError, error } = useQuery(city.CityCode, () =>
+    getWeather(city.CityCode)
+  );
 
   const handleClick = (cityCode) => {
     navigate(`/weather/${cityCode}`);
   };
   return (
-    <div
-      className="card card-weather"
-      onClick={() => handleClick(data.id)}
-    >
+    <div className="card card-weather" onClick={() => handleClick(data.id)}>
       <img className="close-img" src={images.close} alt="" />
 
       {!isLoading && !isError ? (

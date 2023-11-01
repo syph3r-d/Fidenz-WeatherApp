@@ -11,7 +11,9 @@ import { useQuery } from "react-query";
 const WeatherViewCard = () => {
   const navigate = useNavigate();
   const { city } = useParams();
-  const {data,isLoading,isError,error} = useQuery(city,()=>getWeather(city));
+  const { data, isLoading, isError, error } = useQuery(city, () =>
+    getWeather(city)
+  );
 
   return (
     <div className="card card-weather-view">
@@ -23,12 +25,7 @@ const WeatherViewCard = () => {
       />
       {!isLoading && !isError ? (
         <>
-          <div
-            className="header"
-            style={{
-              background: "rgb(56, 142, 231)",
-            }}
-          >
+          <div className="header">
             <div className="location">
               <h2>{`${data.name}, ${data.sys.country}`}</h2>
               <p>9.19am, Feb 8</p>
@@ -54,7 +51,7 @@ const WeatherViewCard = () => {
           <CardFooter data={data} />
         </>
       ) : isError ? (
-        <div className="header" style={{textAlign:"center"}}>
+        <div className="header" style={{ textAlign: "center" }}>
           <h1>{error.message}</h1>
         </div>
       ) : (
