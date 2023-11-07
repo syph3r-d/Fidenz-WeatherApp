@@ -6,6 +6,7 @@ import { useNavigate } from "react-router";
 import MoonLoader from "react-spinners/MoonLoader";
 import moment from "moment";
 import { useQuery } from "react-query";
+import { OPEN_WEATHER_ICONS } from "../../../APIs/config/urls";
 
 const CityCard = ({ color, city }) => {
   const navigate = useNavigate();
@@ -34,7 +35,7 @@ const CityCard = ({ color, city }) => {
               </p>
               <div className="weather-stat">
                 <img
-                  src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
+                  src={`${OPEN_WEATHER_ICONS}${data.weather[0].icon}@2x.png`}
                   alt=""
                 />
                 <h4>{data.weather[0].description}</h4>
