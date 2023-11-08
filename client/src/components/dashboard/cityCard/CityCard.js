@@ -7,6 +7,7 @@ import MoonLoader from "react-spinners/MoonLoader";
 import moment from "moment";
 import { useQuery } from "react-query";
 import { OPEN_WEATHER_ICONS } from "../../../config/urls";
+import { TIME_DATE_FORMAT } from "../../../config/constants";
 
 const CityCard = ({ color, city }) => {
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ const CityCard = ({ color, city }) => {
                 {moment
                   .utc()
                   .add(data.timezone, "seconds")
-                  .format("hh:mm a, MMM DD")}
+                  .format(TIME_DATE_FORMAT)}
               </p>
               <div className="weather-stat">
                 <img

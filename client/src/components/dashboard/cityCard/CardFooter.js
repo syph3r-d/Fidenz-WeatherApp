@@ -1,6 +1,7 @@
 import React from "react";
 import { images } from "../../../utils/images";
 import moment from "moment";
+import { TIME_FORMAT } from "../../../config/constants";
 
 const CardFooter = ({ data }) => {
   return (
@@ -35,7 +36,7 @@ const CardFooter = ({ data }) => {
           {moment
             .utc(data.sys.sunrise, "X")
             .add(data.timezone, "seconds")
-            .format("h:mm a")}
+            .format(TIME_FORMAT)}
         </p>
         <p>
           <b>Sunset: </b>
@@ -43,7 +44,7 @@ const CardFooter = ({ data }) => {
           {moment
             .utc(data.sys.sunset, "X")
             .add(data.timezone, "seconds")
-            .format("h:mm a")}
+            .format(TIME_FORMAT)}
         </p>
       </div>
     </div>
