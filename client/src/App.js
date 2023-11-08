@@ -4,6 +4,7 @@ import Header from "./components/layout/Header";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import WeatherViewCard from "./components/weatherView/WeatherViewCard";
 import { DASHBOARD_ROUTE, WEATHER_VIEW_ROUTE } from "./config/constants";
+import { Navigate } from "react-router-dom";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path={DASHBOARD_ROUTE} element={<Dashboard />} />
           <Route path={WEATHER_VIEW_ROUTE} element={<WeatherViewCard />} />
+          <Route path="*" element={<Navigate to={DASHBOARD_ROUTE} />} />
         </Routes>
       </Router>
       <Footer />
