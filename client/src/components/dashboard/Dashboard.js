@@ -2,7 +2,7 @@ import React from "react";
 import CityCard from "./cityCard/CityCard";
 
 const Dashboard = () => {
-  let cities = require("../../APIs/config/cities.json");
+  let cities = require("../../config/cities.json");
   return (
     <div className="dashboard">
       <div className="search">

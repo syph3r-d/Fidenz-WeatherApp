@@ -5,15 +5,14 @@ import { useParams } from "react-router";
 import { getWeather } from "../../APIs/weatherAPI";
 import { useNavigate } from "react-router";
 import MoonLoader from "react-spinners/MoonLoader";
-import { OPEN_WEATHER_ICONS } from "../../APIs/config/urls";
+import { OPEN_WEATHER_ICONS } from "../../config/urls";
 import { useQuery } from "react-query";
 
 const WeatherViewCard = () => {
   const navigate = useNavigate();
   const { city } = useParams();
-  const { data, isLoading, isError, error } = useQuery(
-    city,
-    () => getWeather(city, false)
+  const { data, isLoading, isError, error } = useQuery(city, () =>
+    getWeather(city, false)
   );
 
   return (

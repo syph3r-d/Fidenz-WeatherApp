@@ -6,7 +6,7 @@ import { useNavigate } from "react-router";
 import MoonLoader from "react-spinners/MoonLoader";
 import moment from "moment";
 import { useQuery } from "react-query";
-import { OPEN_WEATHER_ICONS } from "../../../APIs/config/urls";
+import { OPEN_WEATHER_ICONS } from "../../../config/urls";
 
 const CityCard = ({ color, city }) => {
   const navigate = useNavigate();

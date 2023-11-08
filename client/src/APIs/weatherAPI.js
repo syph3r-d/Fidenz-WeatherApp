@@ -1,5 +1,5 @@
-import { OPEN_WEATHER } from "./config/urls";
-import { UNITS, CACHE_TIME, COLORS } from "./config/constants";
+import { OPEN_WEATHER } from "../config/urls";
+import { UNITS, CACHE_TIME, COLORS } from "../config/constants";
 import moment from "moment";
 
 export const getWeather = async (citycode, cached) => {
