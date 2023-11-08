@@ -1,7 +1,7 @@
 import React from "react";
 import { images } from "../../../utils/images";
 import moment from "moment";
-import { TIME_FORMAT,WIND_SPEED_UNIT } from "../../../config/constants";
+import { TIME_FORMAT} from "../../../config/constants";
 
 const CardFooter = ({ data }) => {
   return (
