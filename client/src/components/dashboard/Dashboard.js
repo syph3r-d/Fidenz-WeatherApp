@@ -3,7 +3,6 @@ import CityCard from "./cityCard/CityCard";
 
 const Dashboard = () => {
   let cities = require("../../APIs/config/cities.json");
-  const colors = ["#388ee7", "#6249cc", "#40b681", "#de944e", "#9c3a3a"];
   return (
     <div className="dashboard">
       <div className="search">
@@ -13,13 +12,8 @@ const Dashboard = () => {
         </button>
       </div>
       <div className="card-grid">
-        {cities.List.map((city) => {
-          return (
-            <CityCard
-              color={colors[Math.floor(Math.random() * colors.length)]}
-              city={city}
-            />
-          );
+        {cities.List.map((city, index) => {
+          return <CityCard city={city} key={index} />;
         })}
       </div>
     </div>

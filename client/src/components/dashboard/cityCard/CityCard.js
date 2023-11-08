@@ -11,7 +11,7 @@ import { OPEN_WEATHER_ICONS } from "../../../APIs/config/urls";
 const CityCard = ({ color, city }) => {
   const navigate = useNavigate();
   const { data, isLoading, isError, error } = useQuery(city.CityCode, () =>
-    getWeather(city.CityCode)
+    getWeather(city.CityCode, true)
   );
 
   const handleClick = (cityCode) => {
@@ -23,7 +23,7 @@ const CityCard = ({ color, city }) => {
 
       {!isLoading && !isError ? (
         <>
-          <div className="header" style={{ background: color }}>
+          <div className="header" style={{ background: data.color }}>
             <img className="clouds-background" src={images.cloud_bg} alt="" />
             <div className="location">
               <h2>{`${data.name}, ${data.sys.country}`}</h2>
