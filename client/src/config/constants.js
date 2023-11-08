@@ -1,4 +1,5 @@
 export const UNITS = "metric";
+export const TEMPERATURE_UNIT = "°C";
 
 export const CACHE_TIME = 300000; //in miliseconds
 

@@ -7,7 +7,7 @@ import MoonLoader from "react-spinners/MoonLoader";
 import moment from "moment";
 import { useQuery } from "react-query";
 import { OPEN_WEATHER_ICONS } from "../../../config/urls";
-import { TIME_DATE_FORMAT } from "../../../config/constants";
+import { TIME_DATE_FORMAT,TEMPERATURE_UNIT } from "../../../config/constants";
 
 const CityCard = ({ color, city }) => {
   const navigate = useNavigate();
@@ -43,10 +43,10 @@ const CityCard = ({ color, city }) => {
               </div>
             </div>
             <div className="temperature">
-              <h1>{data.main.temp}°c</h1>
+              <h1>{data.main.temp}{TEMPERATURE_UNIT}</h1>
               <div className="temperature-minmax">
-                <h5>Temp Min: {data.main.temp_min}°c</h5>
-                <h5>Temp Max: {data.main.temp_max}°c</h5>
+                <h5>Temp Min: {data.main.temp_min}{TEMPERATURE_UNIT}</h5>
+                <h5>Temp Max: {data.main.temp_max}{TEMPERATURE_UNIT}</h5>
               </div>
             </div>
           </div>
