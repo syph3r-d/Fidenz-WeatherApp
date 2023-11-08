@@ -1,6 +1,6 @@
 export const UNITS = "metric";
 
-export const CACHE_TIME = 300;
+export const CACHE_TIME = 300000; //in miliseconds
 
 export const COLORS = ["#388ee7", "#6249cc", "#40b681", "#de944e", "#9c3a3a"];
 
