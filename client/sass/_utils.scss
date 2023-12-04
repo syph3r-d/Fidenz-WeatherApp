@@ -1,17 +1,24 @@
-.btn{
-    font-family:inherit;
-    border: none;
-    padding: 5px 15px;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    
-}
+.btn {
+  font-family: inherit;
+  border: none;
+  padding: 10px 15px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 
-.btn-primary{
+  &-primary {
     background-color: #6c5dd4;
-    &:hover{
-        background-color: lighten(#6c5dd4, 10%);
+    &:hover {
+      background-color: lighten(#6c5dd4, 10%);
     }
+  }
+  &-outline {
+    background-color: #ffffff00;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    &:hover {
+      background-color: #ffffff34;
+    }
+  }
 }

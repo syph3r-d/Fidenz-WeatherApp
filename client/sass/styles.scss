@@ -23,11 +23,15 @@ body {
   .card-container {
     flex-grow: 2;
   }
+  .loading-container {
+    flex-grow: 2;
+    height: 100%;
+  }
 }
 
 header {
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
   justify-content: center;
   margin: 40px 0;
   gap: 40px;
@@ -38,6 +42,11 @@ header {
     h1 {
       color: white;
     }
+  }
+  .login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 .search {
@@ -57,6 +66,20 @@ header {
       outline: none;
     }
   }
+}
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  img {
+    width: 60px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  color: white;
 }
 .card-grid {
   display: grid;
@@ -152,6 +175,13 @@ header {
       justify-content: center;
     }
   }
+  &-landing {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
 }
 .card-weather-view {
   .header {
@@ -195,8 +225,8 @@ header {
   }
 }
 
-.show-sm{
-    display: none;
+.show-sm {
+  display: none;
 }
 
 footer {
