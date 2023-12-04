@@ -3,6 +3,9 @@ import CityCard from "./cityCard/CityCard";
 
 const Dashboard = () => {
   let cities = require("../../config/cities.json");
+  cities.List.sort((a, b) => {
+    return a.Temp - b.Temp;
+  });
   return (
     <div className="dashboard">
       <div className="search">
