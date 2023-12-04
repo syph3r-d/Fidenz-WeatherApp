@@ -7,6 +7,8 @@ import { useNavigate } from "react-router";
 import MoonLoader from "react-spinners/MoonLoader";
 import { OPEN_WEATHER_ICONS } from "../../config/urls";
 import { useQuery } from "react-query";
+import { TIME_DATE_FORMAT } from "../../config/constants";
+import moment from "moment";
 
 const WeatherViewCard = () => {
   const navigate = useNavigate();
@@ -29,7 +31,12 @@ const WeatherViewCard = () => {
             <div className="header">
               <div className="location">
                 <h2>{`${data.name}, ${data.sys.country}`}</h2>
-                <p>9.19am, Feb 8</p>
+                <p>
+                  {moment
+                    .utc()
+                    .add(data.timezone, "seconds")
+                    .format(TIME_DATE_FORMAT)}
+                </p>
               </div>
               <div className="weather-details">
                 <div className="weather-stat">
