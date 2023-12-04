@@ -12,7 +12,7 @@ import { TIME_DATE_FORMAT,TEMPERATURE_UNIT } from "../../../config/constants";
 const CityCard = ({ color, city }) => {
   const navigate = useNavigate();
   const { data, isLoading, isError, error } = useQuery(city.CityCode, () =>
-    getWeather(city.CityCode, true)
+    getWeather(city.CityCode,city.ExpireTime, true)
   );
 
   const handleClick = (cityCode) => {

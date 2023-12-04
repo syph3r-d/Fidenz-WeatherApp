@@ -1,15 +1,14 @@
 import { OPEN_WEATHER } from "../config/urls";
 import { UNITS, CACHE_TIME, COLORS } from "../config/constants";
 
-export const getWeather = async (citycode, cached) => {
+export const getWeather = async (citycode, expireTime, cached) => {
   try {
     const key = "weatherData_" + citycode;
     const cachedData = JSON.parse(localStorage.getItem(key));
     if (
       cachedData &&
       cached &&
-      cachedData.cachedTime + CACHE_TIME >
-        Date.now().valueOf()
+      cachedData.cachedTime + expireTime > Date.now().valueOf()
     ) {
       return cachedData;
     }
@@ -25,6 +24,7 @@ export const getWeather = async (citycode, cached) => {
       cachedTime: Date.now().valueOf(),
       color: COLORS[Math.floor(Math.random() * COLORS.length)],
     };
+
     localStorage.setItem(key, JSON.stringify(cacheData));
     return cacheData;
   } catch (error) {
