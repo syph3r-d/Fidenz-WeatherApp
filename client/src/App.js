@@ -30,7 +30,7 @@ function App() {
             path={WEATHER_VIEW_ROUTE}
             element={
               <Protected>
-                <WeatherViewCard />{" "}
+                <WeatherViewCard />
               </Protected>
             }
           />
